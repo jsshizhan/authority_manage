@@ -1,0 +1,149 @@
+<div class="container" ng-controller="ResourceController">
+  <div class="identityContent">
+    <div class="header-title">
+      <span>资源管理</span>
+    </div>
+    <div class="ui bottom attached active tab segment b-no" data-tab="first" style="padding: 25px 35px">
+      <a ng-click="addResource(id)"><div class="fr search-btn" style="margin-top: -6px;margin-left: 30px;width: 120px;border-radius: 5px">新增</div></a>
+      <a><span class="search-btn fr" style="margin-top: -7px;margin-left: -10px" ng-click="search()">查询</span></a>
+      <span class="fr" style="margin-right: 10px">
+        <div class="ui search">
+          <div class="ui icon input">
+            <input type="text" placeholder="请输入名称，路由" ng-model="ResourceTable.query.searchField">
+          </div>
+        </div>
+      </span>
+      <div style="margin: 40px 0">
+        <table class="ui theme fixed striped table mg-0" style="border-bottom: none">
+          <thead>
+          <tr>
+            <th>名称</th>
+            <th>父菜单</th>
+            <th>路由</th>
+            <th>系统归属</th>
+            <th>排序</th>
+            <th>等级</th>
+            <th>操作</th>
+          </tr>
+          </thead>
+        </table>
+        <div id="ResourceBoxscroll" class="common2Boxscroll frequentBoxscroll" style="height: 500px">
+          <pagination resource="ResourceTable.resource" items="ResourceTable.items" query="ResourceTable.query"
+                      load="resourceLoad"
+                      container="#ResourceBoxscroll">
+            <table class="ui theme fixed striped table">
+              <tbody>
+              <tr ng-repeat="item in ResourceTable.items">
+                <td>
+                  <span>{{item.name}}</span>
+                </td>
+                <td>
+                  <span>{{item.parentName}}</span>
+                </td>
+                <td>
+                  <span>{{item.value}}</span>
+                </td>
+                <td>
+                  <span>{{item.systemType}}</span>
+                </td>
+                <td>
+                  <span>{{item.orderBy}}</span>
+                </td>
+                <td>
+                  <span>{{item.level}}</span>
+                </td>
+                <td>
+                  <div class="ui grid">
+                    <div class="three wide column"></div>
+                    <div class="five wide column">
+                      <a ng-click="delete(item.id)">
+                        <i class="fz-26 cur-po angle remove icon color-red1"></i>
+                      </a>
+                    </div>
+                    <div class="five wide column">
+                      <a ng-click="toModify(item.id)">
+                        <i class="fz-26 cur-po angle edit icon color-red1"></i>
+                      </a>
+                    </div>
+                    <div class="three wide column"></div>
+                  </div>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+          </pagination>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="ui modal" style="width: 500px!important; left: 65%;padding-bottom: 20px" id="resourceModal">
+    <div class="views-title">
+      <span class="color-red1">{{option}}资源</span>
+      <span class="actions modal-icon fr">
+        <span class="cancel cur-po">
+          <img src="../../images/index/delete.png" style="margin-top: 13px;margin-right: 12px">
+        </span>
+      </span>
+    </div>
+    <div class="modalContent">
+      <div class="ui form" style="padding: 0 39px" id="resourceForm">
+        <div class="inline fields">
+          <label style="width: 80px">名称</label>
+          <div class="field">
+          <input style="margin: 0!important;width: 250px" type="text" ng-model="resource.name" name="name">
+            </div>
+        </div>
+
+        <div class="inline fields">
+          <label style="width:80px">系统归属:</label>
+          <div class="field">
+            <selects model="resource.systemType" name="systemType" callback="systemCallback(value)"
+                     type="SystemType">
+            </selects>
+          </div>
+        </div>
+        <div class="inline fields" ng-show="childrenshow">
+          <label style="width: 80px">父菜单</label>
+          <div class="field">
+            <div class="ui search selection dropdown " id="menuParentMap"
+                 data-action="parent menu" data-systemtype="{{systemtype}}">
+              <input type="hidden" class="prompt"
+                     ng-model="resource.parentId" name="parentId" >
+              <i class="dropdown icon"></i>
+              <div class="default text"></div>
+            </div>
+          </div>
+          </div>
+        <div class="inline fields">
+          <label style="width: 80px">路由</label>
+          <div class="field">
+            <input style="margin: 0!important;width: 250px" type="text" ng-model="resource.value" name="value">
+          </div>
+        </div>
+
+        <div class="inline fields">
+          <label style="width: 80px">排序</label>
+          <div class="field">
+          <input style="margin: 0!important;width: 250px" type="text" ng-model="resource.orderBy" name="orderBy">
+            </div>
+        </div>
+        <div class="inline fields">
+          <label style="width: 80px">等级</label>
+          <div class="field">
+            <selects model="resource.level" name="level" callback="selectCallback(value)" default="1"
+                     type="MenuLevelType" >
+            </selects>
+        </div>
+      </div>
+    </div>
+    <div class="actions" style="background: none;border:none;padding: 0;">
+      <div class="approve approve-btn cur-po fr" style="margin-right: 60px">
+        确认
+      </div>
+    </div>
+  </div>
+
+  <delete requestobject="requestobject" callback="callback(callbacktype)"
+          message="message"></delete>
+</div>
+</div>

@@ -1,0 +1,175 @@
+<div class="container bg-white" ng-controller="SystemAccountController">
+  <div class="InfoContent">
+    <div class="ui top attached tabular menu b-no"
+         style="border-bottom: 1px solid #ccc!important;height: 60px">
+      <a class="active item tab" data-tab="first" style="margin-left: 50px!important;">CRM账户</a>
+      <a class="item tab" data-tab="second">客服账户</a>
+      <a class="item tab" data-tab="third">销售账户</a>
+      <a class="item tab" data-tab="forth">财务账户</a>
+    </div>
+    <div class="ui bottom attached active tab segment b-no" data-tab="first" style="padding: 25px 35px">
+      <div style="width: 100%" ng-include src="'views/systemAccount/crmAccount.html'"></div>
+    </div>
+    <div class="ui bottom attached tab segment b-no" data-tab="second" style="padding: 25px 35px">
+      <div style="width: 100%" ng-include src="'views/systemAccount/ccAccount.html'"></div>
+    </div>
+    <div class="ui bottom attached tab segment b-no" data-tab="third" style="padding: 25px 35px">
+      <div style="width: 100%" ng-include src="'views/systemAccount/businessAccount.html'"></div>
+    </div>
+    <div class="ui bottom attached tab segment b-no" data-tab="forth" style="padding: 25px 35px">
+      <div style="width: 100%" ng-include src="'views/systemAccount/billingAccount.html'"></div>
+    </div>
+  </div>
+
+  <div class="ui modal" style="width: 500px!important; left: 65%;padding-bottom: 20px" id="addShipperModal">
+    <div class="views-title">
+      <span class="color-red1">新增货主账户</span>
+      <span class="actions modal-icon fr">
+        <span class="cancel cur-po">
+          <img src="../../images/index/delete.png" style="margin-top: 13px;margin-right: 12px">
+        </span>
+      </span>
+    </div>
+    <div class="modalContent">
+      <div class="ui form" style="padding: 0 39px">
+        <div class="inline field">
+          <label style="width: 80px">姓名</label>
+          <input style="margin: 0!important;width: 250px" type="text">
+        </div>
+        <div class="inline field">
+          <label style="width: 80px">帐号</label>
+          <input style="margin: 0!important;width: 250px" type="text">
+        </div>
+        <div class="inline field">
+          <label style="width: 80px">联系电话</label>
+          <input style="margin: 0!important;width: 250px" type="text">
+        </div>
+        <div class="inline field">
+          <label style="width: 80px">密码</label>
+          <input style="margin: 0!important;width: 250px" type="text">
+        </div>
+        <div class="inline field">
+          <label style="width: 80px">确认密码</label>
+          <input style="margin: 0!important;width: 250px" type="text">
+        </div>
+      </div>
+    </div>
+    <div class="actions" style="background: none;border:none;padding: 0;">
+      <div class="approve approve-btn cur-po fr" style="margin-right: 60px">
+        确认
+      </div>
+    </div>
+  </div>
+  <div class="ui modal" style="width: 500px!important; left: 65%;padding-bottom: 20px" id="addOwnersModal">
+    <div class="views-title">
+      <span class="color-red1">新增车主账户</span>
+      <span class="actions modal-icon fr">
+        <span class="cancel cur-po">
+          <img src="../../images/index/delete.png" style="margin-top: 13px;margin-right: 12px">
+        </span>
+      </span>
+    </div>
+    <div class="modalContent">
+      <div class="ui form" style="padding: 0 39px">
+        <div class="inline field">
+          <label style="width: 80px">姓名</label>
+          <input style="margin: 0!important;width: 250px" type="text">
+        </div>
+        <div class="inline field">
+          <label style="width: 80px">帐号</label>
+          <input style="margin: 0!important;width: 250px" type="text">
+        </div>
+        <div class="inline field">
+          <label style="width: 80px">联系电话</label>
+          <input style="margin: 0!important;width: 250px" type="text">
+        </div>
+        <div class="inline field">
+          <label style="width: 80px">密码</label>
+          <input style="margin: 0!important;width: 250px" type="text">
+        </div>
+        <div class="inline field">
+          <label style="width: 80px">确认密码</label>
+          <input style="margin: 0!important;width: 250px" type="text">
+        </div>
+      </div>
+    </div>
+    <div class="actions" style="background: none;border:none;padding: 0;">
+      <div class="approve approve-btn cur-po fr" style="margin-right: 60px">
+        确认
+      </div>
+    </div>
+  </div>
+  <div class="ui modal" style="width: 500px!important; left: 65%;padding-bottom: 20px" id="editPasswordModal">
+    <div class="views-title">
+      <span class="color-red1">重置密码</span>
+      <span class="actions modal-icon fr">
+        <span class="cancel cur-po">
+          <img src="../../images/index/delete.png" style="margin-top: 13px;margin-right: 12px">
+        </span>
+      </span>
+    </div>
+    <div class="modalContent">
+      <div class="ui form" style="padding: 0 39px">
+        <div class="inline field">
+          <label style="width: 80px">新密码</label>
+          <input style="margin: 0!important;width: 250px" type="text">
+        </div>
+        <div class="inline field">
+          <label style="width: 80px">确认密码</label>
+          <input style="margin: 0!important;width: 250px" type="text">
+        </div>
+      </div>
+    </div>
+    <div class="actions" style="background: none;border:none;padding: 0;">
+      <div class="approve approve-btn cur-po fr" style="margin-right: 60px">
+        确认
+      </div>
+    </div>
+  </div>
+  <div class="ui modal" style="width: 390px!important; left: 70%;padding-bottom: 20px" id="userMigrationModal">
+    <div class="views-title">
+      <span class="color-red1">账户迁移</span>
+      <span class="actions modal-icon fr">
+        <span class="cancel cur-po">
+          <img src="../../images/index/delete.png" style="margin-top: 13px;margin-right: 12px">
+        </span>
+      </span>
+    </div>
+    <div style="padding: 1em">
+      <div class="ui form" style="padding: 0 39px">
+        <div class="inline field">
+          <div class="ui search fl">
+            <div class="ui icon input">
+              <input type="text" placeholder="输入订单号查询" style="width: 50%!important;min-width:0!important;margin-top: 0!important;">
+            </div>
+          </div>
+          <a><span class="search-btn fl" style="margin-left: -10px">查询</span></a>
+        </div>
+      </div>
+      <div id="accountBoxscroll" class="common2Boxscroll frequentBoxscroll" style="height: 500px;margin: 50px 15px 35px">
+        <pagination resource="accountTable.resource" items="accountTable.items"
+                    query="accountTable.query" load="accountTransmit"
+                    container="#accountBoxscroll">
+          <table class="ui theme fixed striped table">
+            <tbody>
+            <tr ng-repeat="item in accountTable.items">
+              <td>
+                <span>史宝宝</span>
+              </td>
+             <td colspan="2">15000000000</td>
+            </tr>
+            </tbody>
+          </table>
+        </pagination>
+      </div>
+    </div>
+    <div class="actions" style="background: none;border:none;padding: 0;">
+      <div class="approve approve-btn cur-po fr" style="margin-right: 60px">
+        确认
+      </div>
+    </div>
+  </div>
+
+
+</div>
+

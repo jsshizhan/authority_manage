@@ -1,0 +1,134 @@
+<div class="container bg-white systemRole" ng-controller="SystemRoleController" style="min-height: 699px">
+  <div class="ui top attached tabular menu b-no"
+       style="border-bottom: 1px solid #ccc!important;height: 60px">
+    <a class="active item tab"  style="margin-left: 50px!important;" ng-click="roleTab('crm')" id="crm_role">CRM角色管理</a>
+    <a class="item tab" ng-click="roleTab('cc')" id="cc_role">客服角色管理</a>
+    <a class="item tab" ng-click="roleTab('business')" id="business_role">销售角色管理</a>
+    <a class="item tab" ng-click="roleTab('billing')" id="billing_role">财务角色管理</a>
+  </div>
+  <div class="edit-btn fr" style="border-radius: 5px" ng-click="toAdd()">新增角色</div>
+  <div style="margin-top: 50px!important;">
+    <table class="ui theme fixed striped table mg-0" style="border-bottom: none;">
+      <thead>
+      <tr>
+        <th>角色</th>
+        <th>角色描述</th>
+        <th>操作</th>
+      </tr>
+      </thead>
+    </table>
+    <div id="staffRoleListBoxscroll1" class="common2Boxscroll frequentBoxscroll" style="height: 500px">
+      <pagination resource="StaffRoleListTable.resource" items="StaffRoleListTable.items" query="StaffRoleListTable.query" load="load"
+                  container="#staffRoleListBoxscroll1">
+        <table class="ui roleTheme fixed striped table">
+          <tbody>
+          <tr ng-repeat="item in StaffRoleListTable.items">
+            <td>
+              <span class="color-red1">{{item.roleName}}</span>
+            </td>
+            <td>
+              <span>{{item.description}}</span>
+            </td>
+            <td style="padding: 0 1em">
+              <div class="ui grid" style="width: 80%;margin: 0 auto">
+                <div class="two column row">
+                  <div class="column">
+                    <a ng-click="editRole(item)">
+                      <div class="edit-btn cur-po" style="border-radius: 5px;">编辑角色</div>
+                    </a>
+                  </div>
+                  <div class="column">
+                    <a ng-click="deleteRole(item.id)">
+                      <div class="delete-btn cur-po" style="font-size: 14px;">
+                        删除角色
+                      </div>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </pagination>
+    </div>
+  </div>
+
+
+  <div class="ui modal" style="width: 699px!important; left: 55%;padding-bottom: 20px" id="editRoleModal">
+    <div class="views-title">
+      <span class="color-red1">编辑</span>
+      <span class="actions modal-icon fr">
+        <span class="cancel cur-po">
+          <img src="../../images/index/delete.png" style="margin-top: 13px;margin-right: 12px">
+        </span>
+      </span>
+    </div>
+    <div class="modalContent">
+      <div class="ui form" style="padding: 0 20px">
+        <div class="inline field">
+          <label style="width: 80px">角色名称</label>
+          <input style="margin: 0!important;width: 500px" type="text" ng-model="staffRole.roleName">
+        </div>
+        <div class="inline field">
+          <label style="width: 80px">角色描述</label>
+          <textarea rows="5" style="margin: 0!important;width: 500px" type="text" ng-model="staffRole.description"/>
+        </div>
+      </div>
+      <div style="width:100%; height:369px; overflow:auto; border:1px solid snow;">
+        <div
+          ivh-treeview="resources" ivh-treeview-validate="true"
+          ivh-treeview-on-cb-change="otherAwesomeCallback(ivhNode, ivhIsSelected, ivhTree)">
+        </div>
+      </div>
+    </div>
+    <div class="actions" style="background: none;border:none;padding: 0;margin-top: 20px">
+      <div class="approve approve-btn cur-po fr" style="margin-right: 60px" ng-click="save()">
+        保存
+      </div>
+    </div>
+  </div>
+
+  <div class="ui modal" style="width: 699px!important; left: 55%;padding-bottom: 20px" id="addRoleModal">
+    <div class="views-title">
+      <span class="color-red1">添加</span>
+      <span class="actions modal-icon fr">
+        <span class="cancel cur-po">
+          <img src="../../images/index/delete.png" style="margin-top: 13px;margin-right: 12px">
+        </span>
+      </span>
+    </div>
+    <div class="modalContent">
+      <div class="ui form" style="padding: 0 20px">
+        <div class="inline field">
+          <label style="width: 80px">角色名称</label>
+          <input style="margin: 0!important;width: 500px" type="text" ng-model="staffRole.roleName">
+        </div>
+        <div class="inline field">
+          <label style="width: 80px">角色描述</label>
+          <textarea rows="5" style="margin: 0!important;width: 500px" type="text" ng-model="staffRole.description"/>
+        </div>
+      </div>
+      <div style="width:100%; height:369px; overflow:auto; border:1px solid snow;">
+        <div
+          ivh-treeview="resources" ivh-treeview-validate="true"
+          ivh-treeview-on-cb-change="otherAwesomeCallback(ivhNode, ivhIsSelected, ivhTree)">
+        </div>
+      </div>
+    </div>
+    <div class="actions" style="background: none;border:none;padding: 0;margin-top: 20px">
+      <div class="approve approve-btn cur-po fr" style="margin-right: 60px" ng-click="add()">
+        保存
+      </div>
+    </div>
+  </div>
+  <delete requestobject="requestobject" callback="callback(callbacktype)"
+          message="message"></delete>
+</div>
+<script>
+  function del(obj){
+    var a = obj.parentNode.parentNode.parentNode;
+    var b = obj.parentNode.parentNode;
+    a.removeChild(b);
+  }
+</script>

@@ -1,0 +1,96 @@
+<div ng-controller="billingAccountController">
+<div class="ui form">
+  <div class="inline fields">
+    <div class="six wide field">
+      <label>角色:</label>
+      <div class="ui selection dropdown"
+           style="width:180px!important;min-width:110px!important;height: 30px!important;min-height: 30px!important;padding-top: 7px">
+        <input type="hidden" name="gender">
+        <i class="dropdown icon"></i>
+        <div class="default text">9.6米</div>
+        <div class="menu">
+          <div class="item" data-value="1">塑料颗粒</div>
+          <div class="item" data-value="0">DHC</div>
+        </div>
+      </div>
+    </div>
+    <div class="three wide field pd-0">
+    </div>
+    <div class="five wide field">
+      <div class="ui search">
+        <div class="ui icon input">
+          <input type="text" placeholder="输入订单号查询" style="width: 90%!important;margin-top: 0!important;">
+        </div>
+      </div>
+      <a><span class="search-btn fl" style="margin-left: -12px">查询</span></a>
+    </div>
+    <div class="two wide field">
+      <a class="cur-po" ng-click="addCorporate(id)">
+        <div class="search-btn" style="width:110px;border-radius: 5px">新增</div>
+      </a>
+    </div>
+  </div>
+</div>
+<div style="margin: 20px 0">
+  <table class="ui theme fixed striped table mg-0" style="border-bottom: none">
+    <thead>
+    <tr>
+      <th>帐号</th>
+      <th>企业名称</th>
+      <th>联系人</th>
+      <th>联系电话</th>
+      <th>密码</th>
+      <th>操作</th>
+    </tr>
+    </thead>
+  </table>
+  <div id="BillingScroll1" class="common2Boxscroll frequentBoxscroll" style="height: 500px">
+    <pagination resource="BillingTable.resource" items="BillingTable.items"
+                query="BillingTable.query" load="billingLoad"
+                container="#BillingScroll1">
+      <table class="ui theme fixed striped table">
+        <tbody>
+        <tr ng-repeat="item in BillingTable.items">
+          <td>
+            <span>20000</span>
+          </td>
+          <td>
+            <span>无锡远迈信息技术有限公司</span>
+          </td>
+          <td>
+            <span>史展展</span>
+          </td>
+          <td>
+            <span>1500000000</span>
+          </td>
+          <td>
+            <span>123456</span>
+          </td>
+          <td>
+            <div class="ui grid">
+              <div class="three column row">
+                <div class="column">
+                  <a ng-click="editPassword(id)">
+                    <i class="fz-22 cur-po unlock icon color-red1"></i>
+                  </a>
+                </div>
+                <div class="column">
+                  <a>
+                    <i class="fz-22 cur-po minus circle icon color-red1"></i>
+                  </a>
+                </div>
+                <div class="column">
+                  <a ng-click="userMigration(id)">
+                    <i class="fz-22 cur-po share icon color-red1"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </pagination>
+  </div>
+</div>
+  </div>
