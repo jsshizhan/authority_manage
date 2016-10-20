@@ -13,47 +13,8 @@ var app = angular
     'ngResource',
     'ngRoute',
     'ngNewRouter',
-    'infinite-scroll',
     'ui.router',
-    'ivh.treeview',
-    'angularFileUpload',
-    'logisticsSupportUiApp.embarrassed',
-    'logisticsSupportUiApp.home',
-    'logisticsSupportUiApp.auditInvitation',
-    'logisticsSupportUiApp.auditForwarder',
-    'logisticsSupportUiApp.auditDriver',
-    'logisticsSupportUiApp.auditShipper',
-    'logisticsSupportUiApp.listsBusiness',
-    'logisticsSupportUiApp.listsFeedback',
-    'logisticsSupportUiApp.listsOwners',
-    'logisticsSupportUiApp.listsPersonal',
-    'logisticsSupportUiApp.driver',
-    'logisticsSupportUiApp.shipper',
-    'logisticsSupportUiApp.forwarder',
-    'logisticsSupportUiApp.listsShipper',
-    'logisticsSupportUiApp.orderEdit',
-    'logisticsSupportUiApp.orderGoodsEdit',
-    'logisticsSupportUiApp.orderReview',
-    'logisticsSupportUiApp.salesStatistics',
-    'logisticsSupportUiApp.systemAccount',
-    'logisticsSupportUiApp.crmAccount',
-    'logisticsSupportUiApp.ccAccount',
-    'logisticsSupportUiApp.businessAccount',
-    'logisticsSupportUiApp.billingAccount',
-    'logisticsSupportUiApp.systemApp',
-    'logisticsSupportUiApp.systemPassword',
-    'logisticsSupportUiApp.systemRole',
-    'logisticsSupportUiApp.tableLogin',
-    'logisticsSupportUiApp.tableOrient',
-    'logisticsSupportUiApp.tableTrade',
-    'logisticsSupportUiApp.userApp',
-    'logisticsSupportUiApp.userBeidou',
-    'logisticsSupportUiApp.userDeal',
-    'logisticsSupportUiApp.userHotSpot',
-    'logisticsSupportUiApp.userMate',
-    'logisticsSupportUiApp.userModel',
-    'logisticsSupportUiApp.userRoute',
-    'logisticsSupportUiApp.resource'
+    'ivh.treeview'
   ])
 
 
@@ -100,13 +61,6 @@ app.config(function ($componentLoaderProvider, $httpProvider,$stateProvider,$url
   });
 });
 
-app.run(function(){
-  $.fn.api.settings.api = {
-    'lookup role': '/api/staffrole/map/{systemtype}',
-    'parent menu':'/api/resource/map/{systemtype}'
-  }
-});
-
 app.controller('RouterController', function ($http, $scope, $location,$stateParams,$urlRouter) {
 
   $scope.resourceState = function(resource){
@@ -118,8 +72,8 @@ app.controller('RouterController', function ($http, $scope, $location,$statePara
     }
   }
 
-  $http.get('/api/profile/resource').success(function(success){
-    $scope.resources = success;
+    
+    $scope.resources = RESOURCES;
     for(var i in $scope.resources) {
       $scope.resourceState($scope.resources[i]);
       if($scope.resources[i].children && $scope.resources[i].children.length > 0 ){
@@ -154,8 +108,6 @@ app.controller('RouterController', function ($http, $scope, $location,$statePara
       $('.home').addClass('click');
     }
 
-  }).error(function(error){
-  });
 
   $scope.parentClass = function(id){
     $('.index .title').not($('#'+id)).removeClass('click');

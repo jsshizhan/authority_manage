@@ -8,18 +8,13 @@
   <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
   <!-- build:css(.) styles/vendor.css -->
   <!-- bower:css -->
-  <link rel="stylesheet" href="bower_components/toastr/toastr.css" />
-  <link rel="stylesheet" href="bower_components/leaflet.markercluster/dist/MarkerCluster.css" />
-  <link rel="stylesheet" href="bower_components/leaflet.markercluster/dist/MarkerCluster.Default.css" />
+  <link rel="stylesheet" href="/bower_components/toastr/toastr.css" />
+  <link rel="stylesheet" href="/bower_components/angular-ivh-treeview/dist/ivh-treeview.css" />
+  <link rel="stylesheet" href="/bower_components/semantic/dist/semantic.css" />
   <!-- endbower -->
-  <link rel="stylesheet" type="text/css" href="bower_components/semantic/dist/semantic.css">
   <!-- endbuild -->
   <!-- build:css(.tmp) styles/main.css -->
-  <link rel="stylesheet" href="bower_components/leaflet/dist/leaflet.css" />
-  <link rel="stylesheet" type="text/css" href="bower_components/angular-ivh-treeview/dist/ivh-treeview.css">
-  <link rel="stylesheet" type="text/css" href="bower_components/angular-ivh-treeview/dist/ivh-treeview-theme-basic.css">
-  <link rel="stylesheet" href="styles/main.css">
-  <link rel="stylesheet" href="scripts/directives/datetimepicker/jquery.datetimepicker.css">
+
   <!-- endbuild -->
 </head>
 <body ng-app="logisticsSupportUiApp">
@@ -31,15 +26,8 @@
 <!-- Add your site or application content here -->
 <div ng-controller="RouterController" class="index">
   <div class="menu">
-    <div class="banner">
-      <div class="banner-title">
-        <span class="fz-26 color-white" style="margin-left: 40px;line-height: 65px">真好运</span>
-        <span class="fz-18 color-white" style="margin-left: 10px;line-height: 65px">智能物流管理平台</span>
-      </div>
-    </div>
     <div class="user">
-      <div class="fl" style="margin-left: 40px;margin-top: 20px"><img src="images/index/1.jpg"
-                                                                      style="width: 30px;height:30px; border-radius: 13px">
+      <div class="fl" style="margin-left: 40px;margin-top: 20px">
       </div>
       <div class="fl color-white" style="line-height: 70px;margin-left: 10px">超级管理员</div>
     </div>
@@ -77,99 +65,29 @@
 
   <!-- build:js(.) scripts/vendor.js -->
   <!-- bower:js -->
-  <script src="bower_components/jquery/dist/jquery.js"></script>
-  <script src="bower_components/angular/angular.js"></script>
-  <script src="bower_components/angular-animate/angular-animate.js"></script>
-  <script src="bower_components/angular-cookies/angular-cookies.js"></script>
-  <script src="bower_components/angular-resource/angular-resource.js"></script>
-  <script src="bower_components/angular-route/angular-route.js"></script>
-  <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
-  <script src="bower_components/angular-touch/angular-touch.js"></script>
-  <script src="bower_components/toastr/toastr.js"></script>
-  <script src="bower_components/checklist-model/checklist-model.js"></script>
-  <script src="bower_components/leaflet/dist/leaflet-src.js"></script>
-  <script src="bower_components/leaflet.markercluster/dist/leaflet.markercluster-src.js"></script>
-  <script src="bower_components/storedb/storedb.js"></script>
+  <script src="/bower_components/jquery/dist/jquery.js"></script>
+  <script src="/bower_components/angular/angular.js"></script>
+  <script src="/bower_components/angular-route/angular-route.js"></script>
+  <script src="/bower_components/toastr/toastr.js"></script>
+  <script src="/bower_components/angular-ivh-treeview/dist/ivh-treeview.js"></script>
+  <script src="/bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+  <script src="/bower_components/semantic/dist/semantic.js"></script>
+  <script src="/bower_components/angular-resource/angular-resource.js"></script>
   <!-- endbower -->
-  <script src="bower_components/ngInfiniteScroll/build/ng-infinite-scroll.js"></script>
-  <script src="bower_components/angular-new-router/dist/router.es5.js"></script>
-  <script src="bower_components/semantic/dist/semantic.js"></script>
   <!-- endbuild -->
-  <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
-  <script src="bower_components/ng-file-upload/angular-file-upload.js"></script>
+  <script src="/bower_components/angular-new-router/dist/router.es5.js"></script>
+  <script src="scripts/resource.js"></script>"
   <!-- build:js({.tmp,app}) scripts/scripts.js -->
-
-  <script src="bower_components/angular-ivh-treeview/dist/ivh-treeview.js"></script>
-  <script src="bower_components/echarts/dist/echarts.js"></script>
-  <script src="scripts/js/jquery.nicescroll.min.js"></script>
   <script src="scripts/app.js"></script>
-  <script src="scripts/enumtype.js"></script>
-  <script src="scripts/filter/enum.js"></script>
-  <script src="scripts/filter/areaCode.js"></script>
-  <script src="scripts/filter/areaname.js"></script>
-  <script src="scripts/controllers/main.js"></script>
-  <script src="scripts/controllers/about.js"></script>
-  <script src="scripts/directives/line/main.js"></script>
-  <script src="scripts/directives/pieNest/main.js"></script>
-  <script src="scripts/directives/datetimepicker/jquery.datetimepicker.full.js"></script>
-  <script src="scripts/directives/areacode/areacode.js"></script>
-  <script src="scripts/directives/areacode/main.js"></script>
-  <script src="scripts/directives/pickadategroup/main.js"></script>
-  <script src="scripts/directives/pickadate/main.js"></script>
-  <script src="scripts/directives/pagination/main.js"></script>
-  <script src="scripts/directives/upload/main.js"></script>
-  <script src="scripts/directives/city/main.js"></script>
-  <script src="scripts/directives/city/city.js"></script>
-  <script src="scripts/directives/select/main.js"></script>
-  <script src="scripts/directives/export/main.js"></script>
-  <script src="scripts/directives/radio/main.js"></script>
-  <script src="scripts/directives/deletemodal/delete.js"></script>
-  <script src="scripts/directives/addressChoice/main.js"></script>
-  <script src="scripts/directives/map/map.js"></script>
-  <script src="scripts/services/MapIconService.js"></script>
-  <script src="scripts/services/GeoService.js"></script>
-  <script src="views/embarrassed/embarrassed.js"></script>
-  <script src="views/home/home.js"></script>
-  <script src="views/auditInvitation/auditInvitation.js"></script>
-  <script src="views/auditForwarder/auditForwarder.js"></script>
-  <script src="views/auditDriver/auditDriver.js"></script>
-  <script src="views/auditShipper/auditShipper.js"></script>
-  <script src="views/listsBusiness/listsBusiness.js"></script>
-  <script src="views/listsFeedback/listsFeedback.js"></script>
-  <script src="views/listsOwners/listsOwners.js"></script>
-  <script src="views/listsPersonal/listsPersonal.js"></script>
-  <script src="views/listsPersonal/driver.js"></script>
-  <script src="views/listsPersonal/shipper.js"></script>
-  <script src="views/listsPersonal/forwarder.js"></script>
-  <script src="views/listsShipper/listsShipper.js"></script>
-  <script src="views/orderEdit/orderEdit.js"></script>
-  <script src="views/orderGoodsEdit/orderGoodsEdit.js"></script>
-  <script src="views/orderReview/orderReview.js"></script>
+  <script src="views/driver/main.js"></script>
+  <script src="views/driverReport/main.js"></script>
+  <script src="views/home/main.js"></script>
+  <script src="views/resource/main.js"></script>
   <script src="views/systemAccount/systemAccount.js"></script>
-  <script src="views/systemAccount/crmAccount.js"></script>
-  <script src="views/systemAccount/ccAccount.js"></script>
-  <script src="views/systemAccount/businessAccount.js"></script>
-  <script src="views/systemAccount/billingAccount.js"></script>
-  <script src="views/systemApp/systemApp.js"></script>
-  <script src="views/systemPassword/systemPassword.js"></script>
-  <script src="views/systemRole/systemRole.js"></script>
-  <script src="views/tableLogin/tableLogin.js"></script>
-  <script src="views/tableTrade/tableTrade.js"></script>
-  <script src="views/tableOrient/tableOrient.js"></script>
-  <script src="views/userApp/userApp.js"></script>
-  <script src="views/userBeidou/userBeidou.js"></script>
-  <script src="views/userDeal/userDeal.js"></script>
-  <script src="views/userHotSpot/userHotSpot.js"></script>
-  <script src="views/userMate/userMate.js"></script>
-  <script src="views/userModel/userModel.js"></script>
-  <script src="views/userRoute/userRoute.js"></script>
-  <script src="views/resource/resource.js"></script>
-  <script src="views/salesStatistics/salesStatistics.js"></script>
+  <script src="views/systemRole/main.js"></script>
+  <script src="views/waybill/main.js"></script>
   <!-- endbuild -->
-  <script src="scripts/js/leaflet-baidu.js"></script>
-  <script src="http://api.map.baidu.com/api?v=2.0&ak=vv3wglGow1wWlmEhmtxcXXRo"></script>
   <script>
-    var baidu_ak = 'vv3wglGow1wWlmEhmtxcXXRo';
     $('.accordion').accordion();
     //改变高度
     $(".left-menu").height($(window).height() - 70);

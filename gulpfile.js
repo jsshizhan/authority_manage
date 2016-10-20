@@ -70,7 +70,7 @@ gulp.task('clean:dist', function (cb) {
   rimraf('./dist', cb);
 });
 
-gulp.task('start:server', function() {
+gulp.task('server', function() {
   gulp_connect.server({
     root: 'app',
     livereload: true,
