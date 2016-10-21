@@ -14,7 +14,7 @@
   <!-- endbower -->
   <!-- endbuild -->
   <!-- build:css(.tmp) styles/main.css -->
-
+   <link rel="stylesheet" href="style/main.css" />
   <!-- endbuild -->
 </head>
 <body ng-app="logisticsSupportUiApp">
@@ -26,8 +26,15 @@
 <!-- Add your site or application content here -->
 <div ng-controller="RouterController" class="index">
   <div class="menu">
+    <div class="banner">
+      <div class="banner-title">
+        <span class="fz-26 color-white" style="margin-left: 40px;line-height: 65px"></span>
+        <span class="fz-18 color-white" style="margin-left: 10px;line-height: 65px"></span>
+      </div>
+    </div>
     <div class="user">
-      <div class="fl" style="margin-left: 40px;margin-top: 20px">
+      <div class="fl" style="margin-left: 40px;margin-top: 20px"><img src="images/index/avatar.jpg"
+                                                                      style="width: 30px;height:30px; border-radius: 13px">
       </div>
       <div class="fl color-white" style="line-height: 70px;margin-left: 10px">超级管理员</div>
     </div>

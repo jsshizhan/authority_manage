@@ -1,0 +1,195 @@
+* {
+  padding: 0;
+  margin: 0;
+  font-family: "Microsoft YaHei";
+}
+
+body {
+  background: rgb(229, 237, 249) !important;
+}
+
+.pd-0 {
+  padding: 0 !important;
+}
+
+.mg-0 {
+  margin: 0 !important;
+}
+
+.fl {
+  float: left;
+}
+
+.fr {
+  float: right;
+}
+
+.fz-22 {
+  font-size: 22px !important;
+}
+
+.fz-26 {
+  font-size: 26px !important;
+}
+
+.fz-16 {
+  font-size: 16px;
+}
+
+.fz-18 {
+  font-size: 18px;
+}
+
+.lh-32 {
+  line-height: 32px;
+}
+
+.lh-40 {
+  line-height: 45px;
+}
+
+.color-white {
+  color: white;
+}
+
+.cur-po {
+  cursor: pointer;
+}
+
+.text-center {
+  text-align: center;
+}
+
+a {
+  text-decoration: none;
+}
+
+.color-green {
+  color: rgb(112, 211, 67);
+}
+
+.color-red {
+  color: rgb(236, 65, 65) !important;
+}
+
+.color-red1 {
+  color: rgb(255, 102, 1) !important;
+}
+
+.color-green {
+  color: rgb(66, 150, 20) !important;
+}
+
+.color-grey {
+  color: #999;
+}
+
+.bg-white {
+  background: white;
+}
+
+.b-no {
+  border: none !important;
+}
+
+/*导航栏*/
+.index .menu {
+  width: 100%;
+  height: 70px;
+}
+
+.index .user {
+  width: 200px;
+  float: left;
+  margin-left: -100%;
+  height: 70px;
+  background: rgb(52, 68, 86);
+}
+
+
+.index .banner {
+  width: 100%;
+  background: rgb(255, 102, 1);
+  height: 100%;
+  float: left;
+}
+
+.index .banner .banner-title {
+  margin-left: 200px;
+  height: 70px;
+  background: url(../images/index/title.png);
+  background-repeat: no-repeat;
+  background-size: 60% 100%;
+}
+
+
+.index .main-content .left-menu {
+  background: rgb(39, 53, 66);
+  width: 200px;
+  min-height: 699px;
+  float: left;
+  z-index: 999;
+}
+
+.index .main-content .right-content {
+  width: 100%;
+  float: left;
+  padding-left: 200px;
+}
+
+.index .banner-title {
+  height: 46px;
+  padding: 0 20px !important;
+}
+
+.ui.accordion .title:not(.ui) {
+  padding: 0 0 0 20px !important;
+}
+
+.index .title a, .index .title-home a {
+  color: rgb(239, 239, 239);
+  line-height: 46px;
+  cursor: pointer;
+  display: block;
+}
+
+.index .title {
+  z-index: 99999 !important;
+}
+
+.index .title:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.title-home:hover {
+  background: rgba(255, 102, 1, 0.5);
+}
+
+.index .content {
+  padding: 0px !important;
+  background: rgb(49, 65, 83);
+}
+
+.index .content a {
+  padding-left: 60px !important;
+}
+
+.index .small-title {
+  display: block !important;
+  width: 200px;
+  line-height: 46px !important;
+  color: #fff !important;
+  cursor: pointer;
+}
+
+.index .small-title.active, .index .title-home.active {
+  background: rgb(255, 102, 1) !important;
+}
+
+.index .title.click {
+  background: rgb(26, 39, 52);
+}
+
+.index .title.home.click {
+  background: rgb(255, 102, 1) !important;
+}
