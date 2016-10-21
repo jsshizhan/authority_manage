@@ -13,13 +13,13 @@ app
       replace: true,
       transclude: true,
       templateUrl: 'scripts/directives/map/map.html',
-      scope:{lmap:'=',vehicles:'=',locationVehicle:'='},
+      scope:{lmap:'=',objects:'=',locationObject:'='},
       link: function(scope, element, attrs) {
         var dateFilter = $filter('date');
         var map = new L.map(element[0],{'crs': L.CRS.BEPSG3857,zoomControl:false });
         scope.lmap = map;
         var markers = L.markerClusterGroup({ disableClusteringAtZoom: 11 });
-        scope.lmap.setView([31.568, 120.299], 6);
+        scope.lmap.setView([40.057031, 116.307852], 11);
         L.control.scale().addTo(scope.lmap);
         var baiduLayer = new L.TileLayer.BaiduLayer();
         scope.lmap.addLayer(baiduLayer);
@@ -30,19 +30,19 @@ app
 
         function update() {
           markers.clearLayers();
-          if(scope.vehicles == "" || scope.vehicles == undefined){
+          if(scope.objects == "" || scope.objects == undefined){
             return;
           }
 
-          for (var i = 0; i < scope.vehicles.length; i++) {
-            var icon = MapIconService.getIcon(scope.vehicles[i].type);
-            var marker = L.marker([scope.vehicles[i].lat, scope.vehicles[i].lng], {
+          for (var i = 0; i < scope.objects.length; i++) {
+            var icon = MapIconService.getIcon(scope.objects[i].type);
+            var marker = L.marker([scope.objects[i].lat, scope.objects[i].lng], {
               icon: icon
             });
             markers.addLayer(marker);
-            marker.driverId = scope.vehicles[i].driverId;
-            marker.type = scope.vehicles[i].type;
-            marker.locationReportTime = scope.vehicles[i].locationReportTime;
+            marker.driverId = scope.objects[i].driverId;
+            marker.type = scope.objects[i].type;
+            marker.locationReportTime = scope.objects[i].locationReportTime;
             marker.on('click', function (e) {
               var lat = e.latlng.lat;
               var lng = e.latlng.lng;
@@ -54,21 +54,21 @@ app
         }
 
 
-        function locationVehicleFun() {
-          if (scope.locationVehicle) {
-            var icon = MapIconService.getIcon(scope.locationVehicle.type);
-            var marker = L.marker([scope.locationVehicle.lat, scope.locationVehicle.lng], {
+        function locationObjectFun() {
+          if (scope.locationObject) {
+            var icon = MapIconService.getIcon(scope.locationObject.type);
+            var marker = L.marker([scope.locationObject.lat, scope.locationObject.lng], {
               icon: icon
             });
             marker.addTo(scope.lmap);
-            marker.driverId = scope.locationVehicle.driverId;
-            marker.type = scope.locationVehicle.type;
+            marker.driverId = scope.locationObject.driverId;
+            marker.type = scope.locationObject.type;
             marker.on('click',function(e){
               var lat = e.latlng.lat;
               var lng = e.latlng.lng;
-              reverseGeoCoding({lng: lng, lat: lat,driverId: e.target.driverId,type: e.target.type,locationReportTime: scope.locationVehicle.locationReportTime});
+              reverseGeoCoding({lng: lng, lat: lat,driverId: e.target.driverId,type: e.target.type,locationReportTime: scope.locationObject.locationReportTime});
             });
-            reverseGeoCoding({lng: scope.locationVehicle.lng, lat: scope.locationVehicle.lat,driverId: scope.locationVehicle.driverId,type: scope.locationVehicle.type,locationReportTime: scope.locationVehicle.locationReportTime});
+            reverseGeoCoding({lng: scope.locationObject.lng, lat: scope.locationObject.lat,driverId: scope.locationObject.driverId,type: scope.locationObject.type,locationReportTime: scope.locationObject.locationReportTime});
           }
         }
 
@@ -105,8 +105,8 @@ app
 
 
 
-        scope.$watch("locationVehicle",locationVehicleFun);
-        scope.$watch("vehicles",update);
+        scope.$watch("locationObject",locationObjectFun);
+        scope.$watch("objects",update);
 
       }
     };

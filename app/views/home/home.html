@@ -1,3 +1,21 @@
 <div ng-controller="homeController" class="container">
-    <map lmap="lmap" style="height:500px;width:500px;margin-left:10px"></map>
+    <map lmap="lmap" objects="students" location-object="locationObject" style="width:100%;height:500px"></map>
+    <table class="ui celled table">
+	  <thead>
+	    <tr>
+	      <th>Name</th>
+	      <th>性别</th>
+	      <th>年龄</th>
+	      <th>定位</th>
+	    </tr>
+	  </thead>
+	  <tbody>
+	    <tr ng-repeat="student in students">
+	      <td>{{student.name}}</td>
+	      <td>{{student.sex}}</td>
+	      <td>{{student.age}}</td>
+	      <td><i class="marker icon cursor" ng-click="location(student)"></i></td>
+	    </tr>
+	  </tbody>
+	</table>
 </div>
