@@ -127,6 +127,7 @@ a {
   background: rgb(39, 53, 66);
   width: 200px;
   min-height: 699px;
+  margin-left: -100%;
   float: left;
   z-index: 999;
 }

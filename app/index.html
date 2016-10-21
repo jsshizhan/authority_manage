@@ -11,6 +11,9 @@
   <link rel="stylesheet" href="/bower_components/toastr/toastr.css" />
   <link rel="stylesheet" href="/bower_components/angular-ivh-treeview/dist/ivh-treeview.css" />
   <link rel="stylesheet" href="/bower_components/semantic/dist/semantic.css" />
+  <link rel="stylesheet" href="/bower_components/leaflet/dist/leaflet.css" />
+  <link rel="stylesheet" href="/bower_components/leaflet.markercluster/dist/MarkerCluster.css" />
+  <link rel="stylesheet" href="/bower_components/leaflet.markercluster/dist/MarkerCluster.Default.css" />
   <!-- endbower -->
   <!-- endbuild -->
   <!-- build:css(.tmp) styles/main.css -->
@@ -80,12 +83,20 @@
   <script src="/bower_components/angular-ui-router/release/angular-ui-router.js"></script>
   <script src="/bower_components/semantic/dist/semantic.js"></script>
   <script src="/bower_components/angular-resource/angular-resource.js"></script>
+  <script src="/bower_components/leaflet/dist/leaflet-src.js"></script>
+  <script src="/bower_components/leaflet.markercluster/dist/leaflet.markercluster-src.js"></script>
   <!-- endbower -->
   <!-- endbuild -->
   <script src="/bower_components/angular-new-router/dist/router.es5.js"></script>
   <script src="scripts/resource.js"></script>"
   <!-- build:js({.tmp,app}) scripts/scripts.js -->
   <script src="scripts/app.js"></script>
+  <script src="scripts/directives/bar/main.js"></script>
+  <script src="scripts/directives/line/main.js"></script>
+  <script src="scripts/directives/pie/main.js"></script>
+  <script src="scripts/directives/map/map.js"></script>
+  <script src="scripts/services/GeoService.js"></script>
+  <script src="scripts/services/MapIconService.js"></script>
   <script src="views/driver/main.js"></script>
   <script src="views/driverReport/main.js"></script>
   <script src="views/home/main.js"></script>
@@ -93,8 +104,11 @@
   <script src="views/systemAccount/systemAccount.js"></script>
   <script src="views/systemRole/main.js"></script>
   <script src="views/waybill/main.js"></script>
+  <script src="scripts/leaflet-baidu.js"></script>
+  <script src="http://api.map.baidu.com/api?v=2.0&ak=xDeWUrrwoPsU1nTHMS4MspFj2VVuGXHR"></script>
   <!-- endbuild -->
   <script>
+    var baidu_ak = 'xDeWUrrwoPsU1nTHMS4MspFj2VVuGXHR';
     $('.accordion').accordion();
     //改变高度
     $(".left-menu").height($(window).height() - 70);
