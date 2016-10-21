@@ -1,0 +1,16 @@
+<div ng-controller="reportViewController">
+	<div class="ui grid" style="height:800px;width:100%;margin-left:10px">
+	  <div class="eight wide column" style="height:50%;width:50%">
+	  		<line title="lineTitle" series="lineSeries" date="lineDate" legend="lineLegend" styles="lineStyles"></line>
+	  </div>
+	  <div class="eight wide column" style="height:50%;width:50%">
+	  		<bar title="barTitle" series="barSeries" date="barDate" legend="barLegend" styles="barStyles"></bar>
+	  </div>
+	  <div class="eight wide column" style="height:50%;width:50%">
+	  		<pie title="pieTitle" series="pieSeries" legend="pieLegend" styles="pieStyles"></pie>
+	  </div>
+	  <div class="eight wide column" style="height:50%;width:50%">
+	  		<report-map title="mapTitle" series="mapSeries" legend="mapLegend" styles="mapStyles"></report-map>
+	  </div>
+	</div>
+</div>

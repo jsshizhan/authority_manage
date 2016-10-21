@@ -12,7 +12,7 @@
     "semantic": "~2.2.4",
     "angular-resource": "~1.5.8",
     "leaflet": "~1.0.1",
-    "echarts": "~3.2.3",
+    "echarts": "2.2.7",
     "leaflet.markercluster": "~1.0.0"
   },
   "devDependencies": {

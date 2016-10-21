@@ -1,14 +1,14 @@
 app.directive('line', function() {
     function link(scope, element, attrs){
         if(typeof(scope.styles) == 'undefined'){
-            scope.styles = {height:'500px'};
+            scope.styles = {height:'400px'};
         }
         var b = function () {
             var myChart = echarts.init(element[0]);
 
             var option = {
                 title: {
-                    text: '订单统计',
+                    text: scope.title,
                     textStyle:{color: '#999'}
                 },
                 tooltip: {

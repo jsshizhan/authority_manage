@@ -1,15 +1,17 @@
 app.directive('pie', function() {
     function link(scope, element, attrs){
-        var a =  ['echarts','echarts/chart/pie'];
-        var b = function (ec) {
-            var myChart = ec.init(element[0]);
+        if(typeof(scope.styles) == 'undefined'){
+            scope.styles = {height:'400px'};
+        }
+        var b = function () {
+            var myChart = echarts.init(element[0]);
             var option = {
-                title : scope.title,
+                title : {text:scope.title},
                 tooltip : {
                     trigger: 'item',
                     formatter: "{a} <br/>{b} : {c} ({d}%)"
                 },
-                legend: scope.legend,
+                legend: {data:scope.legend},
                 toolbox: {
                     show : false,
                     feature : {
@@ -38,7 +40,7 @@ app.directive('pie', function() {
             window.onresize = myChart.resize;
         }
         function update(){
-            require(a,b);
+            b();
         }
         scope.$watch("series",update);
 
@@ -47,7 +49,7 @@ app.directive('pie', function() {
     return {
         link: link,
         replace:true,
-        scope: {title:'=',series:'=',legend:'='},
-        templateUrl:"/static/html/directive/pie.html"
+        scope: {title:'=',series:'=',legend:'=',styles:'='},
+        templateUrl:"scripts/directives/pie/pie.html"
     };
 });

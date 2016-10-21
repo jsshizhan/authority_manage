@@ -22,14 +22,20 @@ var RESOURCES = [
 	},
 	{
 		id:"4",
-		name:"订单管理",
+		name:"导入导出",
 		value:"order",
 		isLink:false,
 		level:1,
 		children:[{
 			id:"5",
-			name:"运单列表",
-			value:"waybill",
+			name:"导入",
+			value:"import",
+			isLink:true,
+			level:2
+		},{
+			id:"12",
+			name:"导出",
+			value:"export",
 			isLink:true,
 			level:2
 		}]
@@ -42,8 +48,8 @@ var RESOURCES = [
 		level:1,
 		children:[{
 			id:"7",
-			name:"司机审核",
-			value:"driverReport",
+			name:"统计",
+			value:"reportView",
 			isLink:true,
 			level:2
 		}]
