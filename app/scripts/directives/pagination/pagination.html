@@ -1,0 +1,6 @@
+  <div infinite-scroll="nextPage()" infinite-scroll-disabled="noMore" infinite-scroll-container="container" class=" ui segment">
+    <ng-transclude></ng-transclude>
+    <div class="ui active dimmer" ng-show="load"><div class="ui mini text loader" >正在加载...</div></div>
+    <div style="text-align: center" ng-show="items.length==0">没有数据</div>
+</div>
+

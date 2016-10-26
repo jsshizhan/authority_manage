@@ -1,11 +1,5 @@
-angular
-  .module('logisticsSupportUiApp.resource', [])
-
-'use strict'
-
-angular.module('logisticsSupportUiApp.resource')
+app
   .controller('ResourceController', function ($scope, $resource, $http,$timeout) {
-
 
     $('#menuParentMap')
       .dropdown({
@@ -68,7 +62,7 @@ angular.module('logisticsSupportUiApp.resource')
       resource:$resource("/api/resource")
     };
 
-    $scope.ResourceTable.query = {timer:new Date()};
+    $scope.ResourceTable.items = RESOURCES;
 
     $scope.delete = function(id){
       $scope.requestobject = {

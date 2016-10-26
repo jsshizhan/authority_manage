@@ -1,9 +1,5 @@
-angular
-  .module('logisticsSupportUiApp.systemRole', [])
 
-'use strict'
-
-angular.module('logisticsSupportUiApp.systemRole')
+app
   .controller('SystemRoleController', function ($scope, $resource, $http,ivhTreeviewMgr) {
     var editRole = $('#editRoleModal').modal({
       closable: false,
