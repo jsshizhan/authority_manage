@@ -50,6 +50,7 @@ app
     $scope.addResource = function(id){
       $scope.option = "新增";
       $scope.childrenshow = true;
+      $scope.resource={};
       $scope.resource.level=2;
       $scope.systemtype=$scope.resource.systemType='crm';
       resourceModal.modal('show');
@@ -62,7 +63,7 @@ app
       resource:$resource("/api/resource")
     };
 
-    $scope.ResourceTable.items = RESOURCES;
+    $scope.ResourceTable.query = {timer:new Date()};
 
     $scope.delete = function(id){
       $scope.requestobject = {

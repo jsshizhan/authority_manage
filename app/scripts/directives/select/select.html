@@ -1,0 +1,11 @@
+<select class="ui search dropdown select" id="search_selects">
+    <option ng-repeat="item in items" class="item" value="{{item.value}}" ng-bind="item.text"></option>
+</select>
+<style>
+    .ui.active.search.dropdown input.search:focus + .text {
+        color: rgba(179, 179, 179, 0.7) !important;
+    }
+    .ui.dropdown .menu > .message:not(.ui) {
+        color: rgba(179, 179, 179, 0.7) !important;
+    }
+</style>
