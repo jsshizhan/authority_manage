@@ -69,52 +69,54 @@ app.run(function(){
 
 app.controller('RouterController', function ($http, $scope, $location,$stateParams,$urlRouter) {
 
-  $scope.resourceState = function(resource){
-    if(resource.isLink) {
-      app.stateProvider.state(resource.value, {
-        url: '/'+resource.value,
-        templateUrl: 'views/'+resource.value+'/'+resource.value+'.html'
-      });
-    }
-  }
-
-
-        $scope.resources = RESOURCES;
-        for(var i in $scope.resources) {
-          $scope.resourceState($scope.resources[i]);
-          if($scope.resources[i].children && $scope.resources[i].children.length > 0 ){
-              for(var j in $scope.resources[i].children){
-                $scope.resourceState($scope.resources[i].children[j]);
-              }
-          }
+      $scope.resourceState = function(resource){
+        if(resource.link) {
+          app.stateProvider.state(resource.value, {
+            url: '/'+resource.value,
+            templateUrl: 'views/'+resource.value+'/'+resource.value+'.html'
+          });
         }
-        app.urlRouterProvider.otherwise('/home');
-        $urlRouter.sync();
-        $urlRouter.listen();
+      }
 
-        $scope._path = $location;
-        $scope.menu = $scope._path.$$path.substring(1, $scope._path.$$path.length);
-
-        if ($scope.menu != "") {
-
-          for(var x in $scope.resources){
-            if($scope.menu == 'home' && $scope.resources[x].value == 'home'){
-              $scope.resourceActive = $scope.resources[x];
-              return;
+        $http.get('/api/profile/resource').success(function(success){
+          $scope.resources = success;
+          for(var i in $scope.resources) {
+            $scope.resourceState($scope.resources[i]);
+            if($scope.resources[i].children && $scope.resources[i].children.length > 0 ){
+                for(var j in $scope.resources[i].children){
+                  $scope.resourceState($scope.resources[i].children[j]);
+                }
             }
-            if($scope.resources[x].children && $scope.resources[x].children.length > 0){
-              for(var y in $scope.resources[x].children){
-                if($scope.resources[x].children[y].value == $scope.menu){
-                  $scope.resourceActive = $scope.resources[x].children[y];
+          }
+          app.urlRouterProvider.otherwise('/home');
+          $urlRouter.sync();
+          $urlRouter.listen();
+
+          $scope._path = $location;
+          $scope.menu = $scope._path.$$path.substring(1, $scope._path.$$path.length);
+
+          if ($scope.menu != "") {
+
+            for(var x in $scope.resources){
+              if($scope.menu == 'home' && $scope.resources[x].value == 'home'){
+                $scope.resourceActive = $scope.resources[x];
+                return;
+              }
+              if($scope.resources[x].children && $scope.resources[x].children.length > 0){
+                for(var y in $scope.resources[x].children){
+                  if($scope.resources[x].children[y].value == $scope.menu){
+                    $scope.resourceActive = $scope.resources[x].children[y];
+                  }
                 }
               }
             }
+          } else {
+            $('.home').addClass('click');
           }
-        } else {
-          $('.home').addClass('click');
-        }
 
     
+      }).error(function(error){
+      });
 
 
   $scope.parentClass = function(id){
