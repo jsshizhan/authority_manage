@@ -1,11 +1,24 @@
-<select class="ui search dropdown select" id="search_selects">
-    <option ng-repeat="item in items" class="item" value="{{item.value}}" ng-bind="item.text"></option>
+<select class="ui search dropdown select">
+
+  <option ng-repeat="item in items" class="item" value="{{item.value}}" ng-bind="item.text"></option>
 </select>
 <style>
-    .ui.active.search.dropdown input.search:focus + .text {
-        color: rgba(179, 179, 179, 0.7) !important;
-    }
-    .ui.dropdown .menu > .message:not(.ui) {
-        color: rgba(179, 179, 179, 0.7) !important;
-    }
+  .ui.active.search.dropdown input.search:focus + .text {
+    color: rgba(179, 179, 179, 0.7) !important;
+  }
+
+  .ui.dropdown .menu > .message:not(.ui) {
+    color: rgba(179, 179, 179, 0.7) !important;
+  }
+
+  .ui.search.dropdown.select.selection,.ui.search.dropdown.city.selection {
+    width: 120px !important;
+    min-width: 0 !important;
+    min-height: 0!important;
+    height: 30px!important;
+    padding-top: 7px!important;
+  }
+  .ui.search.dropdown.select.selection input,.ui.search.dropdown.city.selection input{
+    height: 30px!important;
+  }
 </style>

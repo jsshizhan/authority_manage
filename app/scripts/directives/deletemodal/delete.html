@@ -1,0 +1,10 @@
+<div class="ui samll basic test modal transition" id="delete_modal">
+  <div class="content">
+    <p ng-show="!requestobject.message">你确定删除该条记录？</p>
+    <p ng-show="requestobject.message">是否{{requestobject.message}}</p>
+  </div>
+  <div class="actions">
+    <button class="ui red basic cancel inverted button">否</button>
+    <button class="ui green ok inverted button">是</button>
+  </div>
+</div>

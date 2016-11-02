@@ -1,9 +1,5 @@
-angular
-  .module('logisticsSupportUiApp.crmAccount', [])
 
-'use strict'
-
-angular.module('logisticsSupportUiApp.crmAccount')
+app
   .controller('crmAccountController', function ($scope, $resource, $http) {
 
     $('#staffAccountMap')
@@ -69,7 +65,7 @@ angular.module('logisticsSupportUiApp.crmAccount')
         on: 'blur',
         onSuccess: function () {
           if($scope.staffAccount.id){
-            $http.post('/api/staffaccount/'+$scope.staffAccount.id,$scope.staffAccount).success(function(success){
+            $http.post('/api/account/'+$scope.staffAccount.id,$scope.staffAccount).success(function(success){
               toastr.success('编辑账号成功');
               location.reload();
             }).error(function(error){
@@ -81,7 +77,7 @@ angular.module('logisticsSupportUiApp.crmAccount')
               toastr.warning('角色不能为空');
               return;
             }
-            $http.post('/api/staffaccount', $scope.staffAccount).success(function (success) {
+            $http.post('/api/account', $scope.staffAccount).success(function (success) {
               toastr.success('新增账号成功');
               $scope.StaffAccountTable.query = {timer: new Date()};
             }).error(function (error) {
@@ -94,7 +90,7 @@ angular.module('logisticsSupportUiApp.crmAccount')
 
     $scope.resetPassword = function(id){
       $scope.requestobject = {
-        url:"/api/staffaccount/"+id+"/defaultPassword?date="+new Date().getTime(),
+        url:"/api/account/"+id+"/defaultPassword?date="+new Date().getTime(),
         message:'重置密码',
         requesttype:'post'
       }
@@ -103,7 +99,7 @@ angular.module('logisticsSupportUiApp.crmAccount')
     $scope.StaffAccountTable = {
       items: [],
       query: {},
-      resource:$resource("/api/staffaccount")
+      resource:$resource("/api/account")
     };
     $scope.StaffAccountTable.query = {timer:new Date(),systemType:'crm'};
 
@@ -113,7 +109,7 @@ angular.module('logisticsSupportUiApp.crmAccount')
 
     $scope.editStaffAccount = function(id){
       $scope.option = '编辑';
-      $http.get('/api/staffaccount/'+id).success(function(success){
+      $http.get('/api/account/'+id).success(function(success){
         $scope.staffAccount = success;
         $('#staffAccountMapAdd').dropdown('set text', $scope.staffAccount.roleName);
         addStaffAccountModal.modal('show');

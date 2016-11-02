@@ -78,7 +78,7 @@ gulp.task('server', function() {
     port: 9000,
     middleware: function (connect, opt) {
       return [ (function() {
-        opt.server = '60.205.56.240:8080';
+        opt.server = '192.168.1.108:8080';
         opt.rule = [/\/api/];
         var proxy = new Reproxy(opt);
         return proxy;

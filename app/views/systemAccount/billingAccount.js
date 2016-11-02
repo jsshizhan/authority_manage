@@ -1,9 +1,6 @@
-angular
-  .module('logisticsSupportUiApp.billingAccount', [])
 
-'use strict'
 
-angular.module('logisticsSupportUiApp.billingAccount')
+app
   .controller('billingAccountController', function ($scope, $resource, $http) {
 
     $('.item').tab();

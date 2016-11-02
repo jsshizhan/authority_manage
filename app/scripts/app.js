@@ -49,7 +49,6 @@ app.config(function ($componentLoaderProvider, $httpProvider,$stateProvider,$url
       }
     };
   });
-
   ivhTreeviewOptionsProvider.set({
     defaultSelectedState: false,
     validate: true,
@@ -59,6 +58,13 @@ app.config(function ($componentLoaderProvider, $httpProvider,$stateProvider,$url
     twistieExpandedTpl: '(-)',
     twistieCollapsedTpl: '(+)',
   });
+});
+
+app.run(function(){
+  $.fn.api.settings.api = {
+    'lookup role': '/api/staffrole/map/{systemtype}',
+    'parent menu':'/api/resource/map/{systemtype}'
+  }
 });
 
 app.controller('RouterController', function ($http, $scope, $location,$stateParams,$urlRouter) {
@@ -72,41 +78,43 @@ app.controller('RouterController', function ($http, $scope, $location,$statePara
     }
   }
 
-    
-    $scope.resources = RESOURCES;
-    for(var i in $scope.resources) {
-      $scope.resourceState($scope.resources[i]);
-      if($scope.resources[i].children && $scope.resources[i].children.length > 0 ){
-          for(var j in $scope.resources[i].children){
-            $scope.resourceState($scope.resources[i].children[j]);
+
+        $scope.resources = RESOURCES;
+        for(var i in $scope.resources) {
+          $scope.resourceState($scope.resources[i]);
+          if($scope.resources[i].children && $scope.resources[i].children.length > 0 ){
+              for(var j in $scope.resources[i].children){
+                $scope.resourceState($scope.resources[i].children[j]);
+              }
           }
-      }
-    }
-    app.urlRouterProvider.otherwise('/home');
-    $urlRouter.sync();
-    $urlRouter.listen();
-
-    $scope._path = $location;
-    $scope.menu = $scope._path.$$path.substring(1, $scope._path.$$path.length);
-
-    if ($scope.menu != "") {
-
-      for(var x in $scope.resources){
-        if($scope.menu == 'home' && $scope.resources[x].value == 'home'){
-          $scope.resourceActive = $scope.resources[x];
-          return;
         }
-        if($scope.resources[x].children && $scope.resources[x].children.length > 0){
-          for(var y in $scope.resources[x].children){
-            if($scope.resources[x].children[y].value == $scope.menu){
-              $scope.resourceActive = $scope.resources[x].children[y];
+        app.urlRouterProvider.otherwise('/home');
+        $urlRouter.sync();
+        $urlRouter.listen();
+
+        $scope._path = $location;
+        $scope.menu = $scope._path.$$path.substring(1, $scope._path.$$path.length);
+
+        if ($scope.menu != "") {
+
+          for(var x in $scope.resources){
+            if($scope.menu == 'home' && $scope.resources[x].value == 'home'){
+              $scope.resourceActive = $scope.resources[x];
+              return;
+            }
+            if($scope.resources[x].children && $scope.resources[x].children.length > 0){
+              for(var y in $scope.resources[x].children){
+                if($scope.resources[x].children[y].value == $scope.menu){
+                  $scope.resourceActive = $scope.resources[x].children[y];
+                }
+              }
             }
           }
+        } else {
+          $('.home').addClass('click');
         }
-      }
-    } else {
-      $('.home').addClass('click');
-    }
+
+    
 
 
   $scope.parentClass = function(id){

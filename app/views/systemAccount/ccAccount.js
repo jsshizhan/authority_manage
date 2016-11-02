@@ -1,9 +1,5 @@
-angular
-  .module('logisticsSupportUiApp.ccAccount', [])
 
-'use strict'
-
-angular.module('logisticsSupportUiApp.ccAccount')
+app
   .controller('ccAccountController', function ($scope, $resource, $http) {
 
     var addSupportStaffModal = $('#addSupportStaffModal').modal({

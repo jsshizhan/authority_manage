@@ -1,4 +1,3 @@
-
 app
   .controller('SystemAccountController', function ($scope, $resource, $http) {
 

@@ -1,6 +1,7 @@
 app
   .controller('ResourceController', function ($scope, $resource, $http,$timeout) {
 
+    
     $('#menuParentMap')
       .dropdown({
         fields: {name: "name", value: "id"},
@@ -17,16 +18,24 @@ app
         }
       });
 
-
     $scope.systemCallback = function(value){
       if(value) {
         $scope.systemtype = value
         $scope.resource.parentId='';
         $('#menuParentMap').dropdown({
+          fields: {name: "name", value: "id"},
           apiSettings: {
             action: 'parent menu',
             urlData: {
               systemtype: $scope.systemtype
+            }
+          },
+          onChange: function (value) {
+            if (value) {
+              if (!$scope.resource) {
+                $scope.resource = {};
+              }
+              $scope.resource.parentId = value;
             }
           }
         });
@@ -50,7 +59,6 @@ app
     $scope.addResource = function(id){
       $scope.option = "新增";
       $scope.childrenshow = true;
-      $scope.resource={};
       $scope.resource.level=2;
       $scope.systemtype=$scope.resource.systemType='crm';
       resourceModal.modal('show');
